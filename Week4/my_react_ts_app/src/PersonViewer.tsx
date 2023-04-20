@@ -2,6 +2,8 @@ import { useEffect, useState } from "react"
 import { person } from "./App"
 import AddPerson from "./AddPerson"
 import DeletePerson from "./DeletePerson"
+import SortByAge from "./SortByAge"
+import UpdatePerson from "./UpdatePerson"
 
 const PersonViewer = () => {
     const [people, setPeople] = useState<person[]>([])
@@ -14,7 +16,8 @@ const PersonViewer = () => {
     }, [update])
     return (
       <div>
-        <AddPerson/>
+        <AddPerson update={update} setUpdate={setUpdate}/>
+        <SortByAge people={people} setPeople={setPeople}/>
         <table>
           <tbody>
     <tr>
@@ -27,11 +30,12 @@ const PersonViewer = () => {
       <td>{p.name}</td>
       <td>{p.age}</td>
       <td>{p.city}</td>
-      <td><DeletePerson p={p}/></td>
+      <td><DeletePerson p={p} setUpdate={setUpdate} update={update}/></td>
     </tr>
     )}
     </tbody>
   </table>
+  <UpdatePerson setUpdate={setUpdate} update={update}/>
       </div>
     )
   }

@@ -1,22 +1,10 @@
 {
   "person": [
     {
-      "id": 4,
-      "name": "Dennis",
-      "age": 40,
-      "city": "Albertslund"
-    },
-    {
-      "id": 5,
-      "name": "Erik",
-      "age": 50,
-      "city": "Frederikssund"
-    },
-    {
       "id": 6,
-      "name": "Finn",
-      "age": 60,
-      "city": "Hundige"
+      "name": "Finn2",
+      "age": "45",
+      "city": "Bagsværd"
     },
     {
       "id": 7,
@@ -50,9 +38,9 @@
     },
     {
       "id": 12,
-      "name": "Lars",
-      "age": 120,
-      "city": "Albertslund"
+      "name": "SDKLAMDSL",
+      "age": "11",
+      "city": "city"
     },
     {
       "id": 13,
@@ -158,9 +146,15 @@
     },
     {
       "id": 30,
-      "name": "Ben",
-      "age": 20,
-      "city": "Seattle"
+      "name": "asd",
+      "age": "23",
+      "city": "asdasd"
+    },
+    {
+      "id": 31,
+      "name": "asdasddas",
+      "age": "41",
+      "city": "bags"
     }
   ]
 }
