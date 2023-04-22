@@ -5,8 +5,8 @@
   "main": "index.js",
   "types": "./types/express.d.ts",
   "scripts": {
-    "start:dev": "set NODE_ENV=development & nodemon --exec ts-node server.ts",
-    "start:prod": "set NODE_ENV=production & nodemon --exec ts-node server.ts"
+    "start:dev": "set NODE_ENV=development&&nodemon --exec ts-node server.ts",
+    "start:prod": "set NODE_ENV=production&&nodemon --exec ts-node server.ts"
   },
   "keywords": [],
   "author": "",
