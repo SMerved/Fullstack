@@ -6,7 +6,7 @@ const peopleSchema = new mongoose.Schema({
     required: [true, 'A object must have a name'],
     trim: true,
   },
-  model: {
+  age: {
     type: Number,
     required: [true, 'A object must have an age'],
     trim: true,

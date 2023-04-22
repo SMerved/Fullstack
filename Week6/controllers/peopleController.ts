@@ -29,10 +29,13 @@ export const getPerson = catchAsync(
     });
   }
 );
-export const createPerson = catchAsync(async (req: Request, res: Response) => {
+export const createPerson = catchAsync(async (req: Request, res: Response, next: NextFunction) => {
   const { name, age, city }: {name:string, age:number, city:string} = req.body;
   const id : number = people[people.length-1].id
   const newPerson = { id: id+1, name, age, city }
+  if (!newPerson){
+    return next(new AppError('No object to create', 404));
+  }
   people.push(newPerson)
   fs.writeFileSync('people.json', JSON.stringify(people, null, 2));
 
