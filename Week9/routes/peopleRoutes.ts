@@ -1,4 +1,4 @@
-import express = require("express");
+import express from 'express';
 import {getPerson, createPerson, getAllPeople, updatePersonFull, deletePerson, updatePersonPartial} from "../controllers/peopleController";
 
 const router = express.Router();
