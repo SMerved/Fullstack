@@ -1,10 +1,10 @@
 import * as dotenv from 'dotenv'
 dotenv.config({path:'./config.env'});
-import express = require("express");
-import morgan = require('morgan');
+import express from "express";
+import morgan from "morgan";
 import logger from "./utility/logger";
 import router from './routes/peopleRoutes';
-
+import { expressMiddleware } from '@apollo/server/express4';
 
 const app = express();
 if (process.env.NODE_ENV === 'development') {
@@ -14,7 +14,5 @@ if (process.env.NODE_ENV === 'development') {
 
 app.use(express.json()); // Body parser for JSON data
 app.use(express.static(`${__dirname}/public`)); // Serve static files
-
-app.use("/api/people", router)
 
 export default app;
