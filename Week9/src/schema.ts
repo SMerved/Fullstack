@@ -13,29 +13,35 @@ type Address {
     id: ID
     street: String
     number: Int
-    people: [Person!]!
+    people: [Person]
 }
 
 # The "Query" type is special: it lists all of the available queries that
 # clients can execute, along with the return type for each.
 type Query {
-  people: [Person]
-  person(id:ID): Person
+  people: [Person!]!
+  person(id:ID): Person!
+  addresses: [Address!]!
 }
 type Mutation {
   addPerson(input:PersonInput): Person
   deletePerson(id:ID): Boolean
   updatePerson(input:PersonInput): Person
+  addAddress(input:AddressInput): Address
+  addPersonToAddress(id:ID, input:ID): Address
+  removePersonFromAddress(id:ID, input:ID): Address
 }
 input PersonInput{
   id: ID
   name: String
   age: Int
   city: String
+  addresses: [AddressInput]
 }
 input AddressInput{
     id: ID
     street: String
     number: Int
+    people: [PersonInput]
 }
 `;

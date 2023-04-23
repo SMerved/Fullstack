@@ -3,11 +3,13 @@ type Person = {
     name: string;
     age: number;
     city: string;
+    addresses: Address[];
 };
 type Address = {
     id: string;
     street: string;
     number: number;
+    people: Person[]
 }
 type Context = {
     people: Person[];
@@ -17,4 +19,4 @@ type Args = {
     id: string;
     input: Person | Address;
 };
-export type { Person, Context, Args };
+export type { Person, Context, Args, Address };

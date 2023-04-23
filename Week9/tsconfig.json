@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "rootDirs": ["./"],
+    "rootDirs": ["src"],
     "outDir": "dist",
     "lib": ["es2020"],
     "target": "es2020",
@@ -13,5 +13,6 @@
     "esm": true,
     "experimentalSpecifierResolution": "node"
   },
+  "include": ["src/**/*.ts", "src/resolvers"],
   "exclude": ["node_modules"]
 }

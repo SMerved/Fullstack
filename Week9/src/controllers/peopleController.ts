@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from 'express';
-import AppError from '../utility/appError';
-import catchAsync from '../utility/catchAsync';
-import PeopleModel from '../models/peopleModel';
+import AppError from '../../utility/appError';
+import catchAsync from '../../utility/catchAsync';
+import {PeopleModel, AddressModel} from '../models/peopleModel';
 
 type personT = {
   id?: number
