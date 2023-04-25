@@ -45,18 +45,22 @@ export default {
       return address;
     }
   },*/
-  addPerson: async (_parent:never, { name, age, city }:Person) => {
-    const newPerson = new PeopleModel({ name, age, city });
-    await newPerson.save();
-    return newPerson;
+  addPerson: async (_parent:never, { input }:Args) => {
+    if('age' in input){
+      const newPerson = new PeopleModel({ name:input.name, age: input.age, city: input.city });
+      await newPerson.save();
+      return newPerson;
+    }
   },
   deletePerson: async (_parent:never, { id }:Person) => {
     const result = await PeopleModel.findByIdAndDelete(id);
     return result ? true : false;
   },
-  updatePerson: async (_parent:never, { id, name, age, city }:Person) => {
-    const result = await PeopleModel.findByIdAndUpdate(id, {name, age, city});
-    return result;
+  updatePerson: async (_parent:never, { input }:Args) => {
+    if('age' in input){
+      const result = await PeopleModel.findByIdAndUpdate(input.id, {name: input.name, age: input.age, city: input.city});
+      return result;
+    }
   },
   addAddress: async (_parent:never, { input }:Args) => {
     if('street' in input){

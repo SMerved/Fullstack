@@ -36,12 +36,10 @@ input PersonInput{
   name: String
   age: Int
   city: String
-  addresses: [AddressInput]
 }
 input AddressInput{
     id: ID
     street: String
     number: Int
-    people: [PersonInput]
 }
 `;

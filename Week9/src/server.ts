@@ -13,6 +13,7 @@ import router from './routes/peopleRoutes';
 import { people, addresses } from './data';
 import Person from './resolvers/Person';
 import Address from './resolvers/Address';
+import cors from 'cors';
 import * as dotenv from 'dotenv'
 dotenv.config({path:'./config.env'});
 
@@ -44,7 +45,7 @@ const server = new ApolloServer<MyContext>({
 
 await server.start();
 
-app.use("/graphql", json(), expressMiddleware(server, {
+app.use("/graphql",cors<cors.CorsRequest>(), json(), expressMiddleware(server, {
   context: async () => ({ people, addresses }),
 }),)
 
