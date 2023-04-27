@@ -1,4 +1,4 @@
-namespace Express {
+/*namespace Express {
   interface Request {
     requestTime?: string;
   }
@@ -19,4 +19,4 @@ interface Error {
   };
   isOperational?: boolean;
 }
-
+*/

@@ -1,4 +1,4 @@
-import { useQuery, gql } from '@apollo/client';
+import { useQuery} from '@apollo/client';
 import GetPeople from '../queries/GetPeople';
 import { Person } from '../types';
 
