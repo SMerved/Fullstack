@@ -93,6 +93,7 @@ export default {
   removePersonFromAddress: async (_parent:never, {id, input}:{id:string, input:string}) => {
     const person: Person = await PeopleModel.findById(input)
     const address: Address = await AddressModel.findById(id)
+    console.log(person, address)
     //Kan ikke få fat i id i arrays :(
     const newAddresses : Address[] = person.addresses.filter((a)=> a.street !== address.street && a.number !== address.number)
     const newPeople : Person[] = address.people.filter((p)=> p.name !== person.name && p.age !== person.age)

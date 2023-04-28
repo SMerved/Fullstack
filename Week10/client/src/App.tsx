@@ -1,7 +1,5 @@
 import { ApolloClient, InMemoryCache, ApolloProvider, gql } from '@apollo/client';
 import PeopleViewer from './components/PeopleViewer';
-import AddPerson from './components/AddPerson';
-
 function App() {
 
   const client = new ApolloClient({
@@ -13,7 +11,6 @@ function App() {
     <>
     <ApolloProvider client={client}>
       <PeopleViewer/>
-      <AddPerson/>
     </ApolloProvider>
     </>
   )

@@ -1,11 +1,11 @@
 import { useMutation} from '@apollo/client';
-import { Person } from '../types';
 import CreatePerson from '../mutations/CreatePerson';
 import GetPeople from '../queries/GetPeople';
 import { useState } from 'react';
 
 function AddPerson() {
-    const [person, setPerson] = useState({name:'', age:0, city:''})
+    const initialState = {name:'', age:0, city:''}
+    const [person, setPerson] = useState(initialState)
     const [mutateFunction, {loading, error, data }] = useMutation(CreatePerson, {
     refetchQueries:[GetPeople]
   })
@@ -20,13 +20,14 @@ function AddPerson() {
         input: person
       }
     })
+    setPerson(initialState)
   }
   return (
     <>
-    <form onSubmit={handleOnSubmit}>
-        <input type='text' value={person?.name} onChange={(evt)=>{ setPerson({...person, name: evt.target.value})}}></input>
-        <input type='text' value={person?.city} onChange={(evt)=>{ setPerson({...person, city: evt.target.value})}}></input>
-        <input type='submit' value={"Create Person"}/>
+    <form onSubmit={handleOnSubmit} style={{margin:30}}>
+        <input type='text' style={{margin:5}} placeholder='Name' value={person?.name} onChange={(evt)=>{ setPerson({...person, name: evt.target.value})}}></input>
+        <input type='text' style={{margin:5}} placeholder='City' value={person?.city} onChange={(evt)=>{ setPerson({...person, city: evt.target.value})}}></input>
+        <input type='submit' style={{margin:5}} value={"Create Person"}/>
     </form>
     </>
   )
